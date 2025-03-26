@@ -232,7 +232,7 @@ export default function Home() {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`https://dummy-backend-f25k.onrender.com/logs/?date=${selectedDate}`)
+    axios.get(`http://0.0.0.0:8000/logs/?date=${selectedDate}`)
       .then((res) => {
         if (res.data.length > 0) {
           setRows(res.data);
@@ -257,7 +257,7 @@ export default function Home() {
   const handleSave = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.post('https://dummy-backend-f25k.onrender.com/logs/', {
+      const res = await axios.post('http://0.0.0.0:8000/logs/', {
         date: selectedDate,
         rows,
       });
